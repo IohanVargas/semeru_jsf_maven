@@ -7,47 +7,56 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import org.hibernate.annotations.ForeignKey;
 
 /**
  *
  * @author iohan
  */
 @Entity
-@Table (name=pessoa)
+@Table(name = "pessoa")
 
-public class Pessoa implements Serializable{
+public class Pessoa implements Serializable {
 
-    public Pessoa() {
-        
-    }
-        private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "IdPessoa", nullable = false)
+    private Integer idPessoa;
+
+    @Column(name = "Name", nullable = false, length = 80)
+    private String nome;
+
+    @Column(name = "Email", nullable = false, length = 80)
+    private String email;
+
+    @Column(name = "Telefone", nullable = false, length = 15)
+    private String telefone;
+
+    @Column(name = "Cpf", nullable = false, length = 14)
+    private String cpf;
+
+    @Column(name = "DataDeNascimento", nullable = false)
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataDeNascimento;
+
+    @Column(name = "DataDeCadastro", nullable = false)
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataDeCadastro;
+
+    //adicionando/configurando chave estrangeira
+    @ManyToOne (optional=false)
+    @ForeignKey(name = "PessoaSexo")
+    private Pessoa pessoa;
     
-       @Id
-       @GeneratedValue
-       @Column (name="IdPessoa", nullable=false)
-       private Integer idPessoa;
-       
-       @Column (name="Name", nullable=false, length=80)
-       private String nome;
-        
-       @Column (name="Email", nullable=false, length=80) 
-       private String email;
-       
-       @Column (name="Telefone", nullable=false, length=15)
-       private String telefone;
-       
-       @Column (name="Cpf", nullable=false, length=14)
-       private String cpf;
-       
-       @Column (name="DataDeNascimento", nullable=false)
-       @Temporal(javax.persistence.TemporalType.DATE)
-       private Date dataDeNascimento;
-       
-       @Column (name="DataDeCadastro", nullable=false)
-       @Temporal(javax.persistence.TemporalType.DATE)
-       private Date dataDeCadastro;
+    
+    public Pessoa() {
+
+    }
 
     public Integer getIdPessoa() {
         return idPessoa;
@@ -126,7 +135,5 @@ public class Pessoa implements Serializable{
         }
         return true;
     }
-       
-    
-    
+
 }
