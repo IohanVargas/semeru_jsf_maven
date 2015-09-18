@@ -22,9 +22,6 @@ public class Pessoa implements Serializable{
     public Pessoa() {
         
     }
-    
-    
-    
         private static final long serialVersionUID = 1L;
     
        @Id
