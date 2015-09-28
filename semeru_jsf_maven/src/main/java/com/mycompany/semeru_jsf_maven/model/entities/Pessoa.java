@@ -50,22 +50,17 @@ public class Pessoa implements Serializable {
     @Column(name = "DataDeCadastro", nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeCadastro;
-    
-    
-    @OneToOne(mappedBy = "pessoa",fetch = FetchType.LAZY)
-    @ForeignKey(name="EnderecoPessoa")
+
+    @OneToOne(mappedBy = "pessoa", fetch = FetchType.LAZY)
+    @ForeignKey(name = "EnderecoPessoa")
     private Endereco endereco;
-    
-    
-    
 
     //adicionando/configurando chave estrangeira
-    @ManyToOne (optional=false)
+    @ManyToOne(optional = false)
     @ForeignKey(name = "PessoaSexo")
-    @JoinColumn(name="IdSexo", referencedColumnName = "IdSexo")
+    @JoinColumn(name = "IdSexo", referencedColumnName = "IdSexo")
     private Sexo sexo;
-    
-    
+
     public Pessoa() {
 
     }
@@ -142,12 +137,6 @@ public class Pessoa implements Serializable {
         this.endereco = endereco;
     }
 
-    
-    
-    
-    
-    
-    
     @Override
     public int hashCode() {
         int hash = 5;

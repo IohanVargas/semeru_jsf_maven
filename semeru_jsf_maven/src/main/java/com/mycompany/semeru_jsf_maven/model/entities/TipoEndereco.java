@@ -9,7 +9,6 @@ package com.mycompany.semeru_jsf_maven.model.entities;
  *
  * @author iohan
  */
-
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
@@ -22,9 +21,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Table(name="tipoendereco")
+@Table(name = "tipoendereco")
 public class TipoEndereco implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -33,9 +32,9 @@ public class TipoEndereco implements Serializable {
     private Integer idTipoEndereco;
     @Column(name = "DescricaoTipoEndereco", nullable = false, length = 35)
     private String descricaoTipoEndereco;
-    
+
     @OneToMany(mappedBy = "tipoendereco", fetch = FetchType.LAZY)
-    @ForeignKey(name="EnderecoTipoEndereco")
+    @ForeignKey(name = "EnderecoTipoEndereco")
     private List<Endereco> enderecos;
 
     public TipoEndereco() {

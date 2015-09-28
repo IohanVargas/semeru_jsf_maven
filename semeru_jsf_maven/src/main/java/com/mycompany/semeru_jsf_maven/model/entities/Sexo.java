@@ -20,37 +20,30 @@ import org.hibernate.annotations.ForeignKey;
  *
  * @author iohan
  */
-
 @Entity
-@Table(name="sexo")
+@Table(name = "sexo")
 
 public class Sexo implements Serializable {
-    
-    
+
     private static final long serialVersionUID = 1l;
-    
+
     @Id
     @GeneratedValue
-    @Column(name="IdSexo", nullable=false)
-    
-    private Integer idSexo;
-    @Column(name="Descrição", unique=true, nullable=false, length = 9)
-    
-    private String descricao;
-   
-    //mapeando a chave estrangeira
-    @OneToMany(mappedBy="sexo", fetch = FetchType.LAZY)
-    @ForeignKey(name = "PessoaSexo")
-    
-    private List<Pessoa> pessoas;
-    
-    
-    
-     public Sexo() {
-    }
-    
-    
+    @Column(name = "IdSexo", nullable = false)
 
+    private Integer idSexo;
+    @Column(name = "Descrição", unique = true, nullable = false, length = 9)
+
+    private String descricao;
+
+    //mapeando a chave estrangeira
+    @OneToMany(mappedBy = "sexo", fetch = FetchType.LAZY)
+    @ForeignKey(name = "PessoaSexo")
+
+    private List<Pessoa> pessoas;
+
+    public Sexo() {
+    }
 
     @Override
     public int hashCode() {
@@ -98,7 +91,4 @@ public class Sexo implements Serializable {
         this.pessoas = pessoas;
     }
 
-   
-    
-    
 }
