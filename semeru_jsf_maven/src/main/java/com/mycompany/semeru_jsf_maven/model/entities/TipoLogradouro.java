@@ -21,18 +21,18 @@ import javax.persistence.Table;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Table(name = "tipologradouro")
+@Table(name="tipologradouro")
 public class TipoLogradouro implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue
     @Column(name = "IdTipoLogradouro", nullable = false)
     private Integer idTipoLogradouro;
     @Column(name = "DescricaoTipoLogradouro", nullable = false, length = 40)
     private String descricaoTipoLogradouro;
-
+    
     @OneToMany(mappedBy = "tipologradouro", fetch = FetchType.LAZY)
     @ForeignKey(name = "EnderecoTipoLogradouro")
     private List<Endereco> enderecos;

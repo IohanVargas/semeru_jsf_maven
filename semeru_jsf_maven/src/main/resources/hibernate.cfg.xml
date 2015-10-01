@@ -5,9 +5,9 @@
 <hibernate-configuration>
     <session-factory name="session">
         
-        <!-- CONFIGURAÇÕES DE CONEXÃO COM O BD -->
+              <!-- CONFIGURAÇÕES DE CONEXÃO COM O BD -->
         
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property><!-- Define o driver de conexão com o bd -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property><!-- Defino o driver de conexão com o bd -->
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/semeru_jsf_maven_db?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
@@ -29,8 +29,9 @@
         <property name="c3p0.timeout">300</property>
         <property name="c3p0.max_statements">80</property>
         <property name="c3p0.idle_test_period">300</property>
-        
+             
         <!-- LISTA DE ENTIDADES -->
+        
         <mapping class="com.mycompany.semeru_jsf_maven.model.entities.Cidade"/>        
         <mapping class="com.mycompany.semeru_jsf_maven.model.entities.Endereco"/>      
         <mapping class="com.mycompany.semeru_jsf_maven.model.entities.Estado"/>      
@@ -39,4 +40,5 @@
         <mapping class="com.mycompany.semeru_jsf_maven.model.entities.TipoEndereco"/>
         <mapping class="com.mycompany.semeru_jsf_maven.model.entities.TipoLogradouro"/>
     </session-factory>
+    
 </hibernate-configuration>

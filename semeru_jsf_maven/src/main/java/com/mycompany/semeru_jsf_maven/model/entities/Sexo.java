@@ -21,50 +21,23 @@ import org.hibernate.annotations.ForeignKey;
  * @author iohan
  */
 @Entity
-@Table(name = "sexo")
-
+@Table(name="sexo")
 public class Sexo implements Serializable {
-
-    private static final long serialVersionUID = 1l;
-
+    
+    private static final long serialVersionUID =  1L;   
+    
     @Id
     @GeneratedValue
-    @Column(name = "IdSexo", nullable = false)
-
+    @Column(name="IdSexo",nullable=false)
     private Integer idSexo;
-    @Column(name = "Descrição", unique = true, nullable = false, length = 9)
-
+    @Column(name="Descricao", unique=true, nullable=false, length=9)
     private String descricao;
 
-    //mapeando a chave estrangeira
     @OneToMany(mappedBy = "sexo", fetch = FetchType.LAZY)
-    @ForeignKey(name = "PessoaSexo")
-
+    @ForeignKey(name = "PessoaSexo")        
     private List<Pessoa> pessoas;
-
+    
     public Sexo() {
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + (this.idSexo != null ? this.idSexo.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Sexo other = (Sexo) obj;
-        if (this.idSexo != other.idSexo && (this.idSexo == null || !this.idSexo.equals(other.idSexo))) {
-            return false;
-        }
-        return true;
     }
 
     public Integer getIdSexo() {
@@ -90,5 +63,27 @@ public class Sexo implements Serializable {
     public void setPessoas(List<Pessoa> pessoas) {
         this.pessoas = pessoas;
     }
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + (this.idSexo != null ? this.idSexo.hashCode() : 0);
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Sexo other = (Sexo) obj;
+        if (this.idSexo != other.idSexo && (this.idSexo == null || !this.idSexo.equals(other.idSexo))) {
+            return false;
+        }
+        return true;
+    }
+    
 }

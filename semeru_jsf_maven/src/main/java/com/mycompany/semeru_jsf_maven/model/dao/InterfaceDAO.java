@@ -15,12 +15,12 @@ public interface InterfaceDAO<T> {
     void update (T entity);
     void remove (T entity);
     void merge (T entity);
-    
     T getEntity(Serializable id);
     T getEntityByDetachedCriteria(DetachedCriteria criteria);
+    T getEntityByHQLQuery(String stringQuery);
     List<T> getEntities();
-    List<T> getListDetachedCriteria(DetachedCriteria criteria);
-    
-    
+    List<T> getListByDetachedCriteria(DetachedCriteria criteria);    
     
 }
+    
+
